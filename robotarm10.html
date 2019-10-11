@@ -1,0 +1,31 @@
+<html>
+    <body>
+        <canvas id="canvas" width="800" height="600"></canvas>
+        <script src="./robotarm.js"></script>
+    <script>
+            var canvas = document.getElementById("canvas");
+            var robotArm = new RobotArm(canvas);
+
+            robotArm.loadLevel("exercise 10");
+
+            // Je eigen code plaats je hier.
+            robotArm.speed = 1500    
+            var number = 9
+            for(var leftmove=  0; leftmove<=4; leftmove++){
+                robotArm.grab();
+            
+                for(var right= 1; right <= number; right++){
+                    robotArm.moveRight();
+                }
+                number= number-1
+                robotArm.drop();
+                for(var left= 1; left <= number; left++){
+                    robotArm.moveLeft();
+                }
+                number= number-1
+            }
+            
+            robotArm.run();
+    </script>
+    </body>
+</html>
